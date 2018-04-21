@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
              fflush(stdout);
              emfound = 0;
              for (; count < flen; count++) {
-             /* end marker finden (hoffentlich) */          
+             /* end marker finden (hoffentlich) */
               i = fgetc(fileptr);
               if (i == 0x0A && count <= flen) {
                i = fgetc(fileptr);
@@ -92,8 +92,8 @@ int main(int argc, char **argv) {
       }
      }
     }
-   }                      
-  }           
+   }
+  }
  }
 
  if (filecount == 0) {
@@ -103,8 +103,8 @@ int main(int argc, char **argv) {
 
  printf("\nFound %d KeyShot file(s)\n", (filecount + 1) / 2);
  printf("\nExtracting...   ");
- for( x = 1 ; x <= filecount; x++) {
-  sprintf(outfile,"%5s%02d%4s", prefix, x == 1 ? x : x + 1 - ((x + 1) / 2) , suffix);
+ for (x = 1; x <= filecount; x++) {
+  sprintf(outfile,"%5s%02d%4s", prefix, x == 1 ? x : x + 1 - ((x + 1) / 2), suffix);
   if ((fileptr2 = fopen(outfile, "wb")) == NULL) {
    fprintf(stderr, "\nCould not write to output file! Bailing out\n");
    exit(1);
@@ -113,7 +113,7 @@ int main(int argc, char **argv) {
   fseek(fileptr, count, SEEK_SET); /* an position zum rippen springen */
   printf("\b\b\b%03d", (x + 1) / 2);
   fflush(stdout);
-  for( ;count <= posi[x]; ++count) {
+  for ( ; count <= posi[x]; ++count) {
    i = fgetc(fileptr);         /* rip da shit! */
    fputc(i, fileptr2);
   }
